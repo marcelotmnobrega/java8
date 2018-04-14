@@ -1,3 +1,7 @@
+package br.com.mtmn.java8;
+
+import br.com.mtmn.java8.entity.Person;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
@@ -9,6 +13,11 @@ import java.util.stream.Stream;
 public class App {
 
     public static void main (String[] args){
+        List<Person> listPerson = new ArrayList<>();
+
+    }
+
+    public static void main4 (String[] args){
 
         List<String> listCoderPad = Arrays.asList("Hello, World!", "Welcome to CoderPad.", "This pad is running Java 8.");
         listCoderPad.parallelStream().forEach(System.out::println);
