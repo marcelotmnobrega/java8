@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileFilter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -9,21 +10,27 @@ public class App {
 
     public static void main (String[] args){
 
-        List<String> list = Arrays.asList("Hello, World!", "Welcome to CoderPad.", "This pad is running Java 8.");
-        list.parallelStream().forEach(System.out::println);
-        
-        Stream<String> stream = Stream.of("One", "Two", "Three", "Four", "Five");
+        List<String> listCoderPad = Arrays.asList("Hello, World!", "Welcome to CoderPad.", "This pad is running Java 8.");
+        listCoderPad.parallelStream().forEach(System.out::println);
+
+        //Stream<String> stream = Stream.of("One", "Two", "Three", "Four", "Five");
+        List<String> listChapters = Arrays.asList("One", "Two", "Three", "Four", "Five");
+        Stream<String> stream = listChapters.stream();
         Predicate<String> p2 = Predicate.isEqual("Two");
         Predicate<String> p3 = Predicate.isEqual("Three");
+
         stream
                 .filter(s -> s.length() > 3)
                 .filter(p2.or(p3))
                 .forEach(System.out::println);
 
-        //Optional<String> one = stream.findAny();
-        //System.out.println(one.isPresent()?one.get():"null");
-        //stream.forEach(System.out::println);
-
+        Stream<String> stream2 = listChapters.stream();
+        List<String> listResult = new ArrayList<>();
+        stream2
+                .peek(System.out::println)
+                .filter(p2.or(p3))
+                .forEach(listResult::add);
+        System.out.println("Done - Size: " + listResult.size());
     }
 
     public static void main3 (String[] args){
