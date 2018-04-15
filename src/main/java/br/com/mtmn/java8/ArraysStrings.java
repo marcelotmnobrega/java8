@@ -14,8 +14,8 @@ public class ArraysStrings {
 //        System.out.println(isPermutation("abcd ", "dabc "));
 //        System.out.println(isPermutation("abced", "dabc "));
 
-//        System.out.println("-->" + String.valueOf(replaceSpaces("Sample Text to be usedd. . ...".toCharArray())) + "<--");
-//        System.out.println("-->" + String.valueOf(replaceSpaces("Sample  Text to   be used".toCharArray())) + "<--");
+        System.out.println("-->" + String.valueOf(replaceSpaces("Sample Text to be usedd. . ...".toCharArray())) + "<--");
+        System.out.println("-->" + String.valueOf(replaceSpaces("Sample  Text to   be used".toCharArray())) + "<--");
     }
 
     //ASCII code (128 chars)
