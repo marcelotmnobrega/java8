@@ -13,8 +13,36 @@ import java.util.stream.Stream;
 public class App {
 
     public static void main (String[] args){
+        String init = "Sample Text";
+        byte[] arr = init.getBytes();
+        byte[] arrCopy = new byte[arr.length];
+        byte[] arrCopy2 = new byte[arr.length];
+
+        //Copy via System call
+        System.arraycopy(arr, 0, arrCopy, 0, arr.length);
+
+        //Copy manually
+        for (int i = 0; i < arr.length; i++) {
+            arrCopy2[i] = arr[i];
+        }
+
+        System.out.println(arr.toString());
+        System.out.println(arrCopy.toString());
+        System.out.println(arrCopy2.toString());
+        System.out.println(arrCopy2.length);
+        System.out.println(new String(arrCopy));
+        System.out.println(new String(arrCopy2));
+
         List<Person> listPerson = new ArrayList<>();
 
+        List<Integer> listInt1 = Arrays.asList(1,2,3,4,5,6,7);
+        List<Integer> listInt2 = Arrays.asList(2,4,6);
+        List<Integer> listInt3 = Arrays.asList(3,5,7);
+        List<List<Integer>> list = Arrays.asList(listInt1, listInt2, listInt3);
+        System.out.println(list);
+        list.stream()
+                .map(List::size)
+                .forEach(System.out::println);
     }
 
     public static void main4 (String[] args){
