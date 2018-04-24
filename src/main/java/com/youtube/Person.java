@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-//Jump-Starting Lambda Programming
-
 public class Person {
 
     private int age;

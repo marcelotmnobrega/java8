@@ -1,4 +1,6 @@
 package com.youtube;
 
-public class Sex {
+public enum Sex {
+    MALE,
+    FEMALE
 }
