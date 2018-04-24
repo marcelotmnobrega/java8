@@ -2,10 +2,12 @@ package com.youtube;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 //Jump-Starting Lambda Programming
 
 public class Person {
+
     private int age;
     private Sex sex;
     private PhoneNumber phoneNumber;
@@ -23,24 +25,6 @@ public class Person {
         this.postalAddr = postalAddr;
     }
 
-    void robocallEveryPerson(){
-        List<Person> list = gatherPersons();
-        for(Person p : list){
-            if (p.getAge() >= 16) {
-                PhoneNumber num = p.getPhoneNumber();
-                robocall(num);
-            }
-        }
-    }
-
-    private List<Person> gatherPersons() {
-        return Arrays.asList(new Person());
-    }
-
-    private void robocall(PhoneNumber num) {
-        System.out.println(String.format("robocalling $1... ", num));
-    }
-
     public int getAge() {
         return age;
     }
@@ -55,5 +39,33 @@ public class Person {
     }
     public PostalAddr getPostalAddr() {
         return postalAddr;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age &&
+                Objects.equals(sex, person.sex) &&
+                Objects.equals(phoneNumber, person.phoneNumber) &&
+                Objects.equals(emailAddr, person.emailAddr) &&
+                Objects.equals(postalAddr, person.postalAddr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(age, sex, phoneNumber, emailAddr, postalAddr);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "age=" + age +
+                ", sex=" + sex +
+                ", phoneNumber=" + phoneNumber +
+                ", emailAddr=" + emailAddr +
+                ", postalAddr=" + postalAddr +
+                '}';
     }
 }
