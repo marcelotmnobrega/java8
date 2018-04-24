@@ -53,6 +53,8 @@ public class Solution {
             int res = findSuffix(strings, queryString);
 
             bufferedWriter.write(String.valueOf(res));
+
+
             bufferedWriter.newLine();
         }
 
