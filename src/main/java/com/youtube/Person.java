@@ -1,24 +1,24 @@
 package com.youtube;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public class Person {
 
     private int age;
     private Sex sex;
-    private PhoneNumber phoneNumber;
+    private PhoneNumber homePhoneNumber;
+    private PhoneNumber mobilePhoneNumber;
     private EmailAddr emailAddr;
     private PostalAddr postalAddr;
 
     public Person() {
     }
 
-    public Person(int age, Sex sex, PhoneNumber phoneNumber, EmailAddr emailAddr, PostalAddr postalAddr) {
+    public Person(int age, Sex sex, PhoneNumber homePhoneNumber, PhoneNumber mobilePhoneNumber, EmailAddr emailAddr, PostalAddr postalAddr) {
         this.age = age;
         this.sex = sex;
-        this.phoneNumber = phoneNumber;
+        this.homePhoneNumber = homePhoneNumber;
+        this.mobilePhoneNumber = mobilePhoneNumber;
         this.emailAddr = emailAddr;
         this.postalAddr = postalAddr;
     }
@@ -29,9 +29,14 @@ public class Person {
     public Sex getSex() {
         return sex;
     }
-    public PhoneNumber getPhoneNumber() {
-        return phoneNumber;
+    public PhoneNumber getHomePhoneNumber() {
+        return homePhoneNumber;
     }
+
+    public PhoneNumber getMobilePhoneNumber() {
+        return mobilePhoneNumber;
+    }
+
     public EmailAddr getEmailAddr() {
         return emailAddr;
     }
@@ -45,15 +50,16 @@ public class Person {
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return age == person.age &&
-                Objects.equals(sex, person.sex) &&
-                Objects.equals(phoneNumber, person.phoneNumber) &&
+                sex == person.sex &&
+                Objects.equals(homePhoneNumber, person.homePhoneNumber) &&
+                Objects.equals(mobilePhoneNumber, person.mobilePhoneNumber) &&
                 Objects.equals(emailAddr, person.emailAddr) &&
                 Objects.equals(postalAddr, person.postalAddr);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(age, sex, phoneNumber, emailAddr, postalAddr);
+        return Objects.hash(age, sex, homePhoneNumber, mobilePhoneNumber, emailAddr, postalAddr);
     }
 
     @Override
@@ -61,9 +67,12 @@ public class Person {
         return "Person{" +
                 "age=" + age +
                 ", sex=" + sex +
-                ", phoneNumber=" + phoneNumber +
+                ", homePhoneNumber=" + homePhoneNumber +
+                ", mobilePhoneNumber=" + mobilePhoneNumber +
                 ", emailAddr=" + emailAddr +
                 ", postalAddr=" + postalAddr +
                 '}';
     }
 }
+
+
