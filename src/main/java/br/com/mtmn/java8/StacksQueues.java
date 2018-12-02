@@ -6,44 +6,44 @@ public class StacksQueues {
 
 }
 
-class Stack {
-    Node top;
+class Stack<T> {
+    Node<T> top;
 
-    Object pop() {
+    T pop() {
         if (top != null) {
-            Object item = top.data;
+            T item = top.data;
             top = top.next;
             return item;
         }
         return null;
     }
 
-    void push(Object item) {
+    void push(T item) {
         Node t = new Node(item);
         t.next = top;
         top = t;
     }
 
-    Object peek() {
+    T peek() {
         return top.data;
     }
 }
 
-class Node {
-    Object data;
+class Node<T> {
+    T data;
     Node next;
 
-    Node(Object item) {
+    Node(T item) {
         this.data = item;
         this.next = null;
     }
 }
 
-class Queue {
+class Queue<T> {
 
-    Node first, last;
+    Node<T> first, last;
 
-    void enqueue(Object item) {
+    void enqueue(T item) {
         if (first == null) {
             last = new Node(item);
             first = last;
@@ -53,9 +53,9 @@ class Queue {
         }
     }
 
-    Object dequeue() {
+    T dequeue() {
         if (first != null) {
-            Object item = first.data;
+            T item = first.data;
             first = first.next;
             if (first == null) last = null;
             return item;
